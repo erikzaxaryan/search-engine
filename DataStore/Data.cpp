@@ -1,5 +1,7 @@
 #include "Data.hpp"
 
+Data::Data(){}
+
 Data::Data(const std::string& url, const std::string& title, const std::string& description, const std::string& allText){
     this->url = url;
     this->title = title;

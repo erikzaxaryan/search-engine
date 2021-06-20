@@ -7,25 +7,17 @@ class Website
 {
 private:
 
-    int id;
-
     std::string url;
 
     std::string domain;
 
-    time_t lastCrawlingTime;
-
 public:
 
-    Website(int id,const std::string& domain,const std::string& url, time_t time);
-
-    int getId() const;
+    Website(const std::string& domain,const std::string& url);
 
     const std::string& getUrl() const;
 
     const std::string& getDomain() const;
-
-    time_t getLastCrawlingTime() const;
 };
 
 

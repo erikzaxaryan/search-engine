@@ -18,14 +18,15 @@ void DataStore::addNewData(Data data)
     std::vector<std::string> insertValues = {url, title, allText, description};
     std::vector<std::string> updateValues = {title, allText, description, url};
 
-    std::string updateQuery = "UPDATE Crawler.data SET title = ?, data = ?, description = ? WHERE url =?";
+    std::string updateQuery = "UPDATE Crawler.data2 SET title = ?, allText = ?, description = ? WHERE url =?";
 
     try
     {
-        DBConnector::ExecuteQuery("INSERT INTO Crawler.Data values (?, ?, ?, ?)", insertValues);
+        DBConnector::ExecuteQuery("INSERT INTO Crawler.data2 values (?, ?, ?, ?)", insertValues);
     }
     catch(sql::SQLException& e)
     {
+        std::cout << "wtf";
         if(e.getErrorCode() == 1062 || e.getErrorCode() == 1061)
             DBConnector::ExecuteQuery(updateQuery, updateValues);
     }

@@ -9,30 +9,22 @@ class Link
 {
 private:
 
-    int id;
-
     std::string url;
 
     std::string domain;
 
     LinkStatus status;
 
-    time_t lastLoadTime;
-
 public:
     Link();
 
-    Link(int id, const std::string& url, const std::string& domain, const LinkStatus status, time_t time);
-
-    time_t getLastTime() const;
+    Link(const std::string& url, const std::string& domain, const LinkStatus status);
 
     std::string getUrl() const;
 
     std::string getDomain() const;
 
     LinkStatus getStatus() const;
-
-    int getId() const;
 
     friend bool operator==(const Link& a, const Link& b);
 };
